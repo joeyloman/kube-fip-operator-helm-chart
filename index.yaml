@@ -1,0 +1,23 @@
+apiVersion: v1
+entries:
+  kube-fip-operator:
+  - annotations:
+      catalog.cattle.io/display-name: kube-fip-operator
+      catalog.cattle.io/namespace: kube-fip
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/provides-gvr: kubefip.k8s.binbash.org/v1
+      catalog.cattle.io/rancher-version: '>= 2.6.0-0'
+      catalog.cattle.io/release-name: kube-fip-operator
+      catalog.cattle.io/type: cluster-tool
+    apiVersion: v2
+    appVersion: v0.1
+    created: "2021-12-03T09:02:17.409952+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 1d1b053031922db37bf9710535a30f629597d74b376c5a0d0d1eb5ca5914c06b
+    icon: https://joeyloman.github.io/kube-fip-operator-helm-chart/image/kube-fip-icon.png
+    name: kube-fip-operator
+    type: application
+    urls:
+    - https://joeyloman.github.io/kube-fip-operator-helm-chart/kube-fip-operator-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-12-03T09:02:17.409218+01:00"

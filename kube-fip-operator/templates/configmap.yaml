@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kube-fip-config
+  namespace: {{ .Release.Namespace | default "kube-system" }}
+data:
+  logLevel: "Info"
+  traceIpamData: "false"
+  kubevipUpdate: "false"
+  operateGuestClusterInterval: "480"
+  kubevipGuestInstall: "clusterlabel"
+  kubevipNamespace: kube-system
+  kubevipChartRepoUrl: "https://kube-vip.io/helm-charts"
+  kubevipChartValues: |
+    config:
+      vip_interface: enp1s0
+    image:
+      repository: plndr/kube-vip
+      tag: v0.3.7
+    nodeSelector:
+      node-role.kubernetes.io/master: 'true'
+  kubevipCloudProviderChartValues: |
+    image:
+      repository: kubevip/kube-vip-cloud-provider
+      tag: 0.1

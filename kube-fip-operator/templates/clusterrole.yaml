@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "kube-fip-operator.fullname" . }}-read
+  labels:
+    {{- include "kube-fip-operator.labels" . | nindent 4 }}
+rules:
+- apiGroups: [""]
+  resources:
+  - namespaces
+  - configmaps
+  verbs: ["list", "watch"]
+- apiGroups: ["kubefip.k8s.binbash.org"]
+  resources:
+  - floatingips
+  - floatingipranges
+  verbs: ["get", "list", "watch", "create", "update"]
+- apiGroups: ["provisioning.cattle.io"]
+  resources:
+  - clusters
+  verbs: ["get", "list"]
+- apiGroups: ["rke-machine-config.cattle.io"]
+  resources:
+  - harvesterconfigs
+  verbs: ["get", "list"]
