@@ -10,16 +10,14 @@ data:
   operateGuestClusterInterval: "480"
   kubevipGuestInstall: "clusterlabel"
   kubevipNamespace: kube-system
-  kubevipChartRepoUrl: "https://kube-vip.io/helm-charts"
+  kubevipChartRepoUrl: {{ .Values.kubevipChartRepoUrl | default "https://kube-vip.io/helm-charts" }}
   kubevipChartValues: |
     config:
-      vip_interface: enp1s0
+      vip_interface: {{ .Values.kubevipChartValues.config.vip_interface | default "enp1s0" }}
     image:
-      repository: plndr/kube-vip
-      tag: v0.3.7
-    nodeSelector:
-      node-role.kubernetes.io/master: 'true'
+      repository: {{ .Values.kubevipChartValues.image.repository | default "plndr/kube-vip" }}
+      tag: {{ .Values.kubevipChartValues.image.tag | default "v0.3.7" }}
   kubevipCloudProviderChartValues: |
     image:
-      repository: kubevip/kube-vip-cloud-provider
-      tag: 0.1
+      repository: {{ .Values.kubevipCloudProviderChartValues.image.repository | default "kubevip/kube-vip-cloud-provider" }}
+      tag: {{ .Values.kubevipCloudProviderChartValues.image.tag | default "0.1" }}

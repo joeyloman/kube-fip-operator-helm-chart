@@ -55,3 +55,19 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+#
+# kube-vip-operator configmap default values
+#
+kubevipChartRepoUrl: https://kube-vip.io/helm-charts
+kubevipChartValues:
+  config:
+    vip_interface: enp1s0
+  image:
+    repository: plndr/kube-vip
+    tag: v0.3.7
+kubevipCloudProviderChartValues:
+  image:
+    repository: kubevip/kube-vip-cloud-provider
+    tag: 0.1  
