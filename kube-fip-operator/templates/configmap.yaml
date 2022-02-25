@@ -4,13 +4,28 @@ metadata:
   name: kube-fip-config
   namespace: {{ .Release.Namespace | default "kube-system" }}
 data:
-  logLevel: "Info"
-  traceIpamData: "false"
-  kubevipUpdate: "false"
-  operateGuestClusterInterval: "480"
-  kubevipGuestInstall: "clusterlabel"
-  kubevipNamespace: kube-system
-  kubevipChartRepoUrl: {{ .Values.kubevipChartRepoUrl | default "https://kube-vip.io/helm-charts" }}
+{{- if .Values.logLevel }}
+  logLevel: "{{ .Values.logLevel }}"
+{{- end }}
+{{- if .Values.traceIpamData }}
+  traceIpamData: "{{ .Values.traceIpamData }}"
+{{- end }}
+{{- if .Values.kubevipUpdate }}
+  kubevipUpdate: "{{ .Values.kubevipUpdate }}"
+{{- end }}
+{{- if .Values.operateGuestClusterInterval }}
+  operateGuestClusterInterval: "{{ .Values.operateGuestClusterInterval }}"
+{{- end }}
+{{- if .Values.kubevipGuestInstall }}
+  kubevipGuestInstall: "{{ .Values.kubevipGuestInstall }}"
+{{- end }}
+{{- if .Values.kubevipNamespace }}
+  kubevipNamespace: "{{ .Values.kubevipNamespace }}"
+{{- end }}
+{{- if .Values.kubevipChartRepoUrl }}
+  kubevipChartRepoUrl: "{{ .Values.kubevipChartRepoUrl }}"
+{{- end }}
+{{- if .Values.kubevipChartValues }}
   kubevipChartValues: |
     config:
       vip_interface: {{ .Values.kubevipChartValues.config.vip_interface | default "enp1s0" }}
@@ -23,5 +38,10 @@ data:
     image:
       repository: {{ .Values.kubevipCloudProviderChartValues.image.repository | default "kubevip/kube-vip-cloud-provider" }}
       tag: {{ .Values.kubevipCloudProviderChartValues.image.tag | default "0.1" }}
-  removeHarvesterCloudProvider: "false"
-  harvesterCloudProviderNamespace: "kube-system"
+{{- end }}
+{{- if .Values.removeHarvesterCloudProvider }}
+  removeHarvesterCloudProvider: "{{ .Values.removeHarvesterCloudProvider }}"
+{{- end }}
+{{- if .Values.harvesterCloudProviderNamespace }}
+  harvesterCloudProviderNamespace: "{{ .Values.harvesterCloudProviderNamespace }}"
+{{- end }}

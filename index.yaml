@@ -11,7 +11,26 @@ entries:
       catalog.cattle.io/type: cluster-tool
     apiVersion: v2
     appVersion: v0.2
-    created: "2022-02-24T15:18:41.311215+01:00"
+    created: "2022-02-25T14:47:29.658101+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 06e86f41245f2565aff15e807b8c1cc89b942863feb202d7c2da7b596ba462b7
+    icon: https://joeyloman.github.io/kube-fip-operator-helm-chart/image/kube-fip-icon.png
+    name: kube-fip-operator
+    type: application
+    urls:
+    - https://joeyloman.github.io/kube-fip-operator-helm-chart/kube-fip-operator-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      catalog.cattle.io/display-name: kube-fip-operator
+      catalog.cattle.io/namespace: kube-fip
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/provides-gvr: kubefip.k8s.binbash.org/v1
+      catalog.cattle.io/rancher-version: '>= 2.6.0-0'
+      catalog.cattle.io/release-name: kube-fip-operator
+      catalog.cattle.io/type: cluster-tool
+    apiVersion: v2
+    appVersion: v0.2
+    created: "2022-02-25T14:47:29.657552+01:00"
     description: A Helm chart for Kubernetes
     digest: 4ae13781fdd3a1c22b77e180c6c5e4dec56b8864b252b2273335525fd1a435a8
     icon: https://joeyloman.github.io/kube-fip-operator-helm-chart/image/kube-fip-icon.png
@@ -30,7 +49,7 @@ entries:
       catalog.cattle.io/type: cluster-tool
     apiVersion: v2
     appVersion: v0.1
-    created: "2022-02-24T15:18:41.309993+01:00"
+    created: "2022-02-25T14:47:29.656658+01:00"
     description: A Helm chart for Kubernetes
     digest: 7bd5158784f4cac646724f10a304b8e8dcfbf3e851e21ef67803503a4f3d0f1a
     icon: https://joeyloman.github.io/kube-fip-operator-helm-chart/image/kube-fip-icon.png
@@ -49,7 +68,7 @@ entries:
       catalog.cattle.io/type: cluster-tool
     apiVersion: v2
     appVersion: v0.1
-    created: "2022-02-24T15:18:41.309215+01:00"
+    created: "2022-02-25T14:47:29.655586+01:00"
     description: A Helm chart for Kubernetes
     digest: 1d1b053031922db37bf9710535a30f629597d74b376c5a0d0d1eb5ca5914c06b
     icon: https://joeyloman.github.io/kube-fip-operator-helm-chart/image/kube-fip-icon.png
@@ -58,4 +77,4 @@ entries:
     urls:
     - https://joeyloman.github.io/kube-fip-operator-helm-chart/kube-fip-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-24T15:18:41.307947+01:00"
+generated: "2022-02-25T14:47:29.65457+01:00"
