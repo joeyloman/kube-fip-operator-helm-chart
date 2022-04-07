@@ -31,7 +31,7 @@ data:
       vip_interface: {{ .Values.kubevipChartValues.config.vip_interface | default "enp1s0" }}
     image:
       repository: {{ .Values.kubevipChartValues.image.repository | default "plndr/kube-vip" }}
-      tag: {{ .Values.kubevipChartValues.image.tag | default "v0.3.7" }}
+      tag: {{ .Values.kubevipChartValues.image.tag | default "v0.4.1" }}
     nodeSelector:
       {{ .Values.kubevipChartValues.nodeSelector | default "node-role.kubernetes.io/master: 'true'" }}
   kubevipCloudProviderChartValues: |
