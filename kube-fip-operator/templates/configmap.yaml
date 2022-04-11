@@ -34,6 +34,7 @@ data:
       tag: {{ .Values.kubevipChartValues.image.tag | default "v0.4.1" }}
     nodeSelector:
       {{ .Values.kubevipChartValues.nodeSelector | default "node-role.kubernetes.io/master: 'true'" }}
+    tolerations: {{ .Values.kubevipChartValues.tolerations | default "[]" }}
   kubevipCloudProviderChartValues: |
     image:
       repository: {{ .Values.kubevipCloudProviderChartValues.image.repository | default "kubevip/kube-vip-cloud-provider" }}
