@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/joeyloman/kube-fip-operator
   pullPolicy: IfNotPresent
-  tag: "v0.4"
+  tag: "v0.5"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -63,9 +63,10 @@ logLevel: Info
 traceIpamData: "false"
 kubevipUpdate: "false"
 operateGuestClusterInterval: 480
+metricsPort: 8080
 kubevipGuestInstall: clusterlabel
 kubevipNamespace: kube-system
-kubevipChartRepoUrl: https://kube-vip.io/helm-charts
+kubevipChartRepoUrl: https://kube-vip.github.io/helm-charts
 kubevipChartValues:
   config:
     vip_interface: enp1s0

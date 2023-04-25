@@ -16,6 +16,9 @@ data:
 {{- if .Values.operateGuestClusterInterval }}
   operateGuestClusterInterval: "{{ .Values.operateGuestClusterInterval }}"
 {{- end }}
+{{- if .Values.metricsPort }}
+  metricsPort: "{{ .Values.metricsPort }}"
+{{- end }}
 {{- if .Values.kubevipGuestInstall }}
   kubevipGuestInstall: "{{ .Values.kubevipGuestInstall }}"
 {{- end }}
