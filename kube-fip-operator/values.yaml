@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/joeyloman/kube-fip-operator
   pullPolicy: IfNotPresent
-  tag: "v0.5"
+  tag: "v0.7.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -66,13 +66,16 @@ operateGuestClusterInterval: 480
 metricsPort: 8080
 kubevipGuestInstall: clusterlabel
 kubevipNamespace: kube-system
+kubevipReleaseName: kube-vip
 kubevipChartRepoUrl: https://kube-vip.github.io/helm-charts
 kubevipChartValues:
   config:
     vip_interface: enp1s0
   image:
     repository: plndr/kube-vip
-    tag: v0.4.1
+    tag: v0.6.4
+  env:
+    "prometheus_server: ':8080'"
   nodeSelector:
     "node-role.kubernetes.io/master: 'true'"
   tolerations: '[
@@ -92,9 +95,8 @@ kubevipChartValues:
       "operator": "Exists"
     }
   ]'
+kubevipCloudProviderReleaseName: kube-vip-cloud-provider
 kubevipCloudProviderChartValues:
   image:
     repository: kubevip/kube-vip-cloud-provider
-    tag: 0.1
-removeHarvesterCloudProvider: "false"
-harvesterCloudProviderNamespace: kube-system
+    tag: v0.0.7

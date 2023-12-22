@@ -25,8 +25,14 @@ data:
 {{- if .Values.kubevipNamespace }}
   kubevipNamespace: "{{ .Values.kubevipNamespace }}"
 {{- end }}
+{{- if .Values.kubevipReleaseName }}
+  kubevipReleaseName: "{{ .Values.kubevipReleaseName }}"
+{{- end }}
 {{- if .Values.kubevipChartRepoUrl }}
   kubevipChartRepoUrl: "{{ .Values.kubevipChartRepoUrl }}"
+{{- end }}
+{{- if .Values.kubevipCloudProviderReleaseName }}
+  kubevipCloudProviderReleaseName: "{{ .Values.kubevipCloudProviderReleaseName }}"
 {{- end }}
 {{- if .Values.kubevipChartValues }}
   kubevipChartValues: |
@@ -34,18 +40,16 @@ data:
       vip_interface: {{ .Values.kubevipChartValues.config.vip_interface | default "enp1s0" }}
     image:
       repository: {{ .Values.kubevipChartValues.image.repository | default "plndr/kube-vip" }}
-      tag: {{ .Values.kubevipChartValues.image.tag | default "v0.4.1" }}
+      tag: {{ .Values.kubevipChartValues.image.tag | default "v0.6.4" }}
+    {{- if .Values.kubevipChartValues.env }}
+    env:
+      {{ .Values.kubevipChartValues.env }}
+    {{- end }}
     nodeSelector:
       {{ .Values.kubevipChartValues.nodeSelector | default "node-role.kubernetes.io/master: 'true'" }}
     tolerations: {{ .Values.kubevipChartValues.tolerations | default "[]" }}
   kubevipCloudProviderChartValues: |
     image:
       repository: {{ .Values.kubevipCloudProviderChartValues.image.repository | default "kubevip/kube-vip-cloud-provider" }}
-      tag: {{ .Values.kubevipCloudProviderChartValues.image.tag | default "0.1" }}
-{{- end }}
-{{- if .Values.removeHarvesterCloudProvider }}
-  removeHarvesterCloudProvider: "{{ .Values.removeHarvesterCloudProvider }}"
-{{- end }}
-{{- if .Values.harvesterCloudProviderNamespace }}
-  harvesterCloudProviderNamespace: "{{ .Values.harvesterCloudProviderNamespace }}"
+      tag: {{ .Values.kubevipCloudProviderChartValues.image.tag | default "v0.0.7" }}
 {{- end }}
