@@ -31,8 +31,20 @@ data:
 {{- if .Values.kubevipChartRepoUrl }}
   kubevipChartRepoUrl: "{{ .Values.kubevipChartRepoUrl }}"
 {{- end }}
+{{- if .Values.kubevipChartRef }}
+  kubevipChartRef: "{{ .Values.kubevipChartRef }}"
+{{- end }}
+{{- if .Values.kubevipChartVersion }}
+  kubevipChartVersion: "{{ .Values.kubevipChartVersion }}"
+{{- end }}
 {{- if .Values.kubevipCloudProviderReleaseName }}
   kubevipCloudProviderReleaseName: "{{ .Values.kubevipCloudProviderReleaseName }}"
+{{- end }}
+{{- if .Values.kubevipCloudProviderChartRef }}
+  kubevipCloudProviderChartRef: "{{ .Values.kubevipCloudProviderChartRef }}"
+{{- end }}
+{{- if .Values.kubevipCloudProviderChartVersion }}
+  kubevipCloudProviderChartVersion: "{{ .Values.kubevipCloudProviderChartVersion }}"
 {{- end }}
 {{- if .Values.kubevipChartValues }}
   kubevipChartValues: |
