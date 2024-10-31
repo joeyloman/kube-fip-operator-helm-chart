@@ -28,23 +28,24 @@ data:
 {{- if .Values.kubevipReleaseName }}
   kubevipReleaseName: "{{ .Values.kubevipReleaseName }}"
 {{- end }}
-{{- if .Values.kubevipChartRepoUrl }}
-  kubevipChartRepoUrl: "{{ .Values.kubevipChartRepoUrl }}"
-{{- end }}
 {{- if .Values.kubevipChartRef }}
   kubevipChartRef: "{{ .Values.kubevipChartRef }}"
-{{- end }}
-{{- if .Values.kubevipChartVersion }}
+  {{- if .Values.kubevipChartVersion }}
   kubevipChartVersion: "{{ .Values.kubevipChartVersion }}"
+  {{- end }}
+{{- else }}
+  {{- if .Values.kubevipChartRepoUrl }}
+  kubevipChartRepoUrl: "{{ .Values.kubevipChartRepoUrl }}"
+  {{- end }}
 {{- end }}
 {{- if .Values.kubevipCloudProviderReleaseName }}
   kubevipCloudProviderReleaseName: "{{ .Values.kubevipCloudProviderReleaseName }}"
 {{- end }}
 {{- if .Values.kubevipCloudProviderChartRef }}
   kubevipCloudProviderChartRef: "{{ .Values.kubevipCloudProviderChartRef }}"
-{{- end }}
-{{- if .Values.kubevipCloudProviderChartVersion }}
+  {{- if .Values.kubevipCloudProviderChartVersion }}
   kubevipCloudProviderChartVersion: "{{ .Values.kubevipCloudProviderChartVersion }}"
+  {{- end }}
 {{- end }}
 {{- if .Values.kubevipChartValues }}
   kubevipChartValues: |
